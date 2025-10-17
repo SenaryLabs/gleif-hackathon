@@ -1,0 +1,128 @@
+{
+    "$id": "EGmOpO4vK9w96jTxkMdOS8b0KfVPD7ckz0Sjxt90zDyu",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Cardano Wallet Binding Credential",
+    "description": "This credential contains a binding proof linking a KERI identity to a Cardano wallet address.",
+    "type": "object",
+    "credentialType": "CardanoWalletBindingCredential",
+    "version": "1.0.0",
+    "properties": {
+      "v": {
+        "description": "Version",
+        "type": "string"
+      },
+      "d": {
+        "description": "Credential SAID",
+        "type": "string"
+      },
+      "u": {
+        "description": "One time use nonce",
+        "type": "string"
+      },
+      "i": {
+        "description": "Issuee AID",
+        "type": "string"
+      },
+      "ri": {
+        "description": "Credential status registry",
+        "type": "string"
+      },
+      "s": {
+        "description": "Schema SAID",
+        "type": "string"
+      },
+      "a": {
+        "oneOf": [
+          {
+            "description": "Attributes block SAID",
+            "type": "string"
+          },
+          {
+            "$id": "EEO4yfScbUE9luEZBAmIF1S2WmDBF1f6jvADe0eFE5PP",
+            "description": "Attributes block for Cardano wallet binding",
+            "type": "object",
+            "properties": {
+              "d": {
+                "description": "Attributes block SAID",
+                "type": "string"
+              },
+              "i": {
+                "description": "Issuee AID",
+                "type": "string"
+              },
+              "dt": {
+                "description": "Issuance date time",
+                "type": "string",
+                "format": "date-time"
+              },
+              "cardanoBinding": {
+                "description": "Cardano wallet binding proof",
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "description": "Binding type",
+                    "type": "string",
+                    "enum": [
+                      "KERI-Cardano-Binding"
+                    ]
+                  },
+                  "canonicalMessage": {
+                    "description": "Canonical binding message",
+                    "type": "string"
+                  },
+                  "signature": {
+                    "description": "KERI signature of the binding message",
+                    "type": "string"
+                  },
+                  "cardanoAddress": {
+                    "description": "Cardano wallet address",
+                    "type": "string"
+                  },
+                  "cardanoPublicKey": {
+                    "description": "Cardano wallet public key",
+                    "type": "string"
+                  },
+                  "timestamp": {
+                    "description": "Binding timestamp",
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "algorithm": {
+                    "description": "Signature algorithm",
+                    "type": "string",
+                    "enum": [
+                      "Ed25519"
+                    ]
+                  }
+                },
+                "required": [
+                  "type",
+                  "canonicalMessage",
+                  "signature",
+                  "cardanoAddress",
+                  "cardanoPublicKey",
+                  "timestamp",
+                  "algorithm"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": true,
+            "required": [
+              "i",
+              "dt",
+              "cardanoBinding"
+            ]
+          }
+        ]
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "i",
+      "ri",
+      "s",
+      "d",
+      "a"
+    ]
+  }

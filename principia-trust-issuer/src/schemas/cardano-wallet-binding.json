@@ -1,0 +1,109 @@
+{
+    "$id": "EGmOpO4vK9w96jTxkMdOS8b0KfVPD7ckz0Sjxt90zDyu",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Cardano Wallet Binding ACDC",
+    "description": "ACDC asserting a binding between a KERI AID and a Cardano wallet public key/address.",
+    "type": "object",
+    "credentialType": "CardanoWalletBindingACDC",
+    "version": "1.0.0",
+    "properties": {
+      "v": { "type": "string", "description": "Version string" },
+      "d": { "type": "string", "description": "Credential SAID" },
+      "u": { "type": "string", "description": "Nonce" },
+      "i": { "type": "string", "description": "Issuer AID (usually same as subject for self-asserted binding)" },
+      "ri": { "type": "string", "description": "Status registry if revocable" },
+      "s": { "type": "string", "description": "Schema SAID" },
+      "a": {
+        "oneOf": [
+          { "type": "string", "description": "Attributes block SAID" },
+          {
+            "$id": "ECardanoBindingAttributesTemplate",
+              "type": "object",
+              "description": "Attributes block",
+              "properties": {
+                "d": { "type": "string", "description": "Attributes block SAID" },
+                "i": { "type": "string", "description": "Subject AID (bound KERI identifier)" },
+                "dt": { "type": "string", "format": "date-time", "description": "Issuance datetime" },
+                "binding": {
+                  "type": "object",
+                  "description": "Binding proof payload",
+                  "properties": {
+                    "type": { "type": "string", "enum": ["KERI-Cardano-Binding"] },
+                    "canonicalMessage": { "type": "string" },
+                    "signature": { "type": "string" },
+                    "cardanoAddress": { "type": "string" },
+                    "cardanoPublicKey": { "type": "string" },
+                    "timestamp": { "type": "string", "format": "date-time" },
+                    "algorithm": { "type": "string", "enum": ["Ed25519"] },
+                    "nonce": { "type": "string" }
+                  },
+                  "required": [
+                    "type",
+                    "canonicalMessage",
+                    "signature",
+                    "cardanoAddress",
+                    "cardanoPublicKey",
+                    "timestamp",
+                    "algorithm",
+                    "nonce"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": ["i", "dt", "binding"],
+              "additionalProperties": false
+          }
+        ]
+      },
+      "e": {
+        "oneOf": [
+          { "type": "string", "description": "Edges block SAID" },
+          {
+            "type": "object",
+            "description": "Edges referencing DID-level anchoring event (optional)",
+            "properties": {
+              "d": { "type": "string", "description": "Edges block SAID" },
+              "anchor": {
+                "type": "object",
+                "description": "Reference to KEL interaction event that anchored the binding",
+                "properties": {
+                  "n": { "const": "cardano-binding-anchor" },
+                  "d": { "type": "string", "description": "Interaction event SAID" }
+                },
+                "required": ["n", "d"]
+              }
+            },
+            "required": ["d", "anchor"],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "r": {
+        "oneOf": [
+          { "type": "string", "description": "Rules block SAID" },
+          {
+            "type": "object",
+            "description": "Rules (advisory)",
+            "properties": {
+              "d": { "type": "string" },
+              "usage": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "Binding valid only if KEL event exists",
+                    "Rotate on key compromise",
+                    "Reject if timestamp older than 24h"
+                  ]
+                }
+              }
+            },
+            "required": ["d", "usage"],
+            "additionalProperties": false
+          }
+        ]
+      }
+    },
+    "additionalProperties": false,
+    "required": ["v", "d", "i", "ri", "s", "a"]
+  }

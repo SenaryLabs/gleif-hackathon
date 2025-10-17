@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "lib": ["deno.window"],
+    "strict": true
+  },
+  "nodeModulesDir": "auto",
+  "imports": {
+    "@evolution-sdk/lucid": "npm:@evolution-sdk/lucid@^2.0.1",
+    "@evolution-sdk/evolution": "npm:@evolution-sdk/evolution"
+  },
+  "tasks": {
+    "validate-sig": "deno run --allow-all src/validate-cip8-sigstructure.ts",
+    "validate-binding": "deno run --allow-all src/validate-binding-message.ts",
+    "test-keri-parser": "deno run --allow-all src/test-keri-parser.ts",
+    "test-real-binding": "deno run --allow-all src/test-real-binding-data.ts",
+    "test-binding": "deno run --allow-all src/test-binding-validator.ts",
+    "test-binding-real": "deno run --allow-all src/test-binding-validator-real.ts",
+    "test-bond-minting": "deno run --allow-all src/test-bond-minting.ts",
+    "test-bond-simplified": "deno run --allow-all src/test-bond-minting-simplified.ts",
+    "test-deser": "deno run --allow-all src/test-deserialization-only.ts",
+    "test-minimal-real": "deno run --allow-all src/test-minimal-binding-real.ts",
+    "test-onchain-data": "deno run --allow-all src/test-onchain-data.ts"
+  }
+}

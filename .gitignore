@@ -1,0 +1,11 @@
+# Ignore node modules and build artifacts
+node_modules/
+build/
+dist/
+.env
+.env.*
+*.log
+.cache/
+coverage/
+*.tsbuildinfo
+*.DS_Store

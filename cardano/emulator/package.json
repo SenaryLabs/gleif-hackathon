@@ -1,0 +1,50 @@
+{
+  "name": "principia-trust-engine-emulator",
+  "version": "1.0.0",
+  "description": "Simple emulator for Principia Trust Engine spend transactions",
+  "main": "src/simple-spend.ts",
+  "scripts": {
+    "start": "deno run --allow-all src/simple-spend.ts",
+    "spend": "deno run --allow-all src/simple-spend.ts",
+  "utils": "deno run --allow-all src/test-utils.ts",
+  "test": "deno run --allow-all src/test-bond-minting.ts",
+  "lint": "deno lint",
+  "format": "deno fmt",
+  "check": "deno check src/**/*.ts"
+  },
+  "dependencies": {
+    "@evolution-sdk/lucid": "^2.0.1",
+    "@noble/curves": "^2.0.1",
+    "@noble/ed25519": "^3.0.0",
+    "@noble/hashes": "^2.0.1",
+    "@scure/bip32": "^2.0.1",
+    "@scure/bip39": "^2.0.1",
+    "cbor-x": "^1.6.0",
+    "multiformats": "^13.4.1",
+    "signify-ts": "^0.3.0-rc1",
+    "tweetnacl": "^1.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.21"
+  },
+  "keywords": [
+    "cardano",
+    "keri",
+    "emulator",
+    "spend",
+    "transaction",
+    "lucid",
+    "principia",
+    "trust-engine"
+  ],
+  "author": "Principia Trust Engine Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/principia-trust/engine.git"
+  },
+  "bugs": {
+    "url": "https://github.com/principia-trust/engine/issues"
+  },
+  "homepage": "https://github.com/principia-trust/engine#readme"
+}

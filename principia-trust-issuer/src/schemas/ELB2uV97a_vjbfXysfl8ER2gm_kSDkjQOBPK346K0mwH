@@ -1,0 +1,91 @@
+{
+  "$id": "ELB2uV97a_vjbfXysfl8ER2gm_kSDkjQOBPK346K0mwH",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Business Card",
+  "description": "This is a credential issued for a Business Card.",
+  "type": "object",
+  "credentialType": "BusinessCardCredential",
+  "version": "1.0.0",
+  "properties": {
+    "v": {
+      "description": "Version",
+      "type": "string"
+    },
+    "d": {
+      "description": "Credential SAID",
+      "type": "string"
+    },
+    "u": {
+      "description": "One time use nonce",
+      "type": "string"
+    },
+    "i": {
+      "description": "Issuee AID",
+      "type": "string"
+    },
+    "ri": {
+      "description": "Credential status registry",
+      "type": "string"
+    },
+    "s": {
+      "description": "Schema SAID",
+      "type": "string"
+    },
+    "a": {
+      "oneOf": [
+        {
+          "description": "Attributes block SAID",
+          "type": "string"
+        },
+        {
+          "$id": "EI3LrsrsKOIMmrkCKLK0e-GIiSgmmgZHH45SF_X4MJ6X",
+          "description": "Attributes block",
+          "type": "object",
+          "properties": {
+            "d": {
+              "description": "Attributes block SAID",
+              "type": "string"
+            },
+            "i": {
+              "description": "Issuee AID",
+              "type": "string"
+            },
+            "dt": {
+              "description": "Issuance date time",
+              "type": "string",
+              "format": "date-time"
+            },
+            "name": {
+              "description": "Full name",
+              "type": "string"
+            },
+            "title": {
+              "description": "Job title or position",
+              "type": "string"
+            },
+            "company": {
+              "description": "Company name",
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "i",
+            "dt",
+            "name",
+            "title",
+            "company"
+          ]
+        }
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "i",
+    "ri",
+    "s",
+    "d",
+    "a"
+  ]
+}

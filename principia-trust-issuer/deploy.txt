@@ -1,0 +1,6 @@
+gcloud run deploy principia-trust-issuer \
+  --source . \
+  --platform managed \
+  --region europe-west1 \
+  --allow-unauthenticated \
+  --set-env-vars="ENDPOINT=https://principia-trust-issuer-688776546121.europe-west1.run.app,OOBI_ENDPOINT=https://principia-trust-issuer-688776546121.europe-west1.run.app,KERIA_ENDPOINT=your-keria-endpoint-here,KERIA_BOOT_ENDPOINT=your-keria-boot-endpoint-here"

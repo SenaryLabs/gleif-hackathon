@@ -1,0 +1,163 @@
+{
+    "$id": "EM7HM9BA236bnGXoH9qJOuzyubspYRYL8pWIF9bF5rE6",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "title": "Bond Issuer Credential",
+    "description": "A credential that establishes the holder's role as an authorized bond issuer for an organization. This credential enables the holder to issue bonds on behalf of the organization and provides cryptographic proof of their authority.",
+    "type": "object",
+    "credentialType": "BondIssuerCredential",
+    "version": "1.0.0",
+    "properties": {
+      "v": {
+        "description": "Version",
+        "type": "string"
+      },
+      "d": {
+        "description": "Credential SAID",
+        "type": "string"
+      },
+      "u": {
+        "description": "One time use nonce",
+        "type": "string"
+      },
+      "i": {
+        "description": "Issuer AID",
+        "type": "string"
+      },
+      "ri": {
+        "description": "Credential status registry",
+        "type": "string"
+      },
+      "s": {
+        "description": "Schema SAID",
+        "type": "string"
+      },
+      "a": {
+        "description": "Credential attributes",
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "i": {
+            "description": "Subject AID (Bond Issuer's KERI identifier)",
+            "type": "string"
+          },
+          "role": {
+            "description": "Organizational role",
+            "type": "string",
+            "enum": [
+              "BondIssuer",
+              "CFO",
+              "Treasurer",
+              "AuthorizedOfficer"
+            ]
+          },
+          "company": {
+            "description": "Company or organization name",
+            "type": "string"
+          },
+          "issuedAt": {
+            "description": "Credential issuance timestamp",
+            "type": "string",
+            "format": "date-time"
+          },
+          "validFrom": {
+            "description": "Credential validity start date",
+            "type": "string",
+            "format": "date-time"
+          },
+          "validUntil": {
+            "description": "Credential validity end date",
+            "type": "string",
+            "format": "date-time"
+          },
+          "bondIssuingAuthority": {
+            "description": "Details about the bond issuing authority",
+            "type": "object",
+            "properties": {
+              "maxBondAmount": {
+                "description": "Maximum bond amount this issuer can authorize",
+                "type": "number"
+              },
+              "currency": {
+                "description": "Currency for bond amounts",
+                "type": "string",
+                "default": "USD"
+              },
+              "bondTypes": {
+                "description": "Types of bonds this issuer can authorize",
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "Corporate",
+                    "Municipal",
+                    "Treasury",
+                    "Convertible",
+                    "Zero-Coupon"
+                  ]
+                }
+              }
+            }
+          },
+          "complianceFramework": {
+            "description": "Regulatory compliance framework",
+            "type": "object",
+            "properties": {
+              "jurisdiction": {
+                "description": "Legal jurisdiction",
+                "type": "string"
+              },
+              "regulatoryBody": {
+                "description": "Overseeing regulatory body",
+                "type": "string"
+              },
+              "licenseNumber": {
+                "description": "Regulatory license number",
+                "type": "string"
+              }
+            }
+          },
+          "walletBinding": {
+            "description": "Reference to DID Document wallet binding for on-chain verification",
+            "type": "object",
+            "properties": {
+              "didDocument": {
+                "description": "Reference to the DID Document containing wallet binding",
+                "type": "string"
+              },
+              "verificationMethodId": {
+                "description": "Specific verification method ID for wallet binding",
+                "type": "string"
+              },
+              "cardanoAddress": {
+                "description": "Associated Cardano wallet address for bond issuance",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": [
+          "i",
+          "role",
+          "company",
+          "issuedAt"
+        ]
+      },
+      "e": {
+        "description": "Edges block",
+        "type": "object"
+      },
+      "r": {
+        "description": "Rules block",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "v",
+      "d",
+      "i",
+      "ri",
+      "s",
+      "a"
+    ]
+  }

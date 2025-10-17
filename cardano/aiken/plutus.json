@@ -1,0 +1,446 @@
+{
+  "preamble": {
+    "title": "senarylabs/principia-trust-engine",
+    "description": "Principia KERI-Cardano Wallet Binding Verification",
+    "version": "0.0.1",
+    "plutusVersion": "v3",
+    "compiler": {
+      "name": "Aiken",
+      "version": "v1.1.19+e525483"
+    },
+    "license": "Apache-2.0"
+  },
+  "validators": [
+    {
+      "title": "binding_validator.binding_validator.spend",
+      "datum": {
+        "title": "_datum",
+        "schema": {
+          "$ref": "#/definitions/ByteArray"
+        }
+      },
+      "redeemer": {
+        "title": "redeemer",
+        "schema": {
+          "$ref": "#/definitions/principia~1types~1BindingRedeemer"
+        }
+      },
+      "compiledCode": "5901a001010029800aba2aba1aab9faab9eaab9dab9a48888896600264653001300700198039804000cc01c0092225980099b8748008c01cdd500144c8cc896600266e1d2000300a375400d13232323232323232323232323298009bad301a0019bae301a00d9bae301a00c9bae301a00b9bae301a00a9bae301a0099bae301a0089bae301a0079bae301a0069bae301a0059bae301a0049bae301a0039bae301a0024888888888888966002605001d159800cc004dd71813981418141814181418129baa0209bae30273028302830283028302830253754041375c604e605060506050605060506050604a6ea808172a8cc00660026eb8c09cc0a0c0a0c0a0c0a0c0a0c0a0c0a0c0a0c0a0c094dd50104dd71813981418141814181418141814181418129baa0209bae30273028302830283028302830283028302830253754040b95528528a0468a50408d164098301a0013019001301800130170013016001301500130140013013001301200130110013010001300f001300b375400d16402460160026016601800260106ea800a2c8030600e00260066ea801e29344d95900101",
+      "hash": "3be8aed1d98cf1dee37c25ed1ecc35221069eed84a42d7ed43e442ef"
+    },
+    {
+      "title": "binding_validator.binding_validator.else",
+      "redeemer": {
+        "schema": {}
+      },
+      "compiledCode": "5901a001010029800aba2aba1aab9faab9eaab9dab9a48888896600264653001300700198039804000cc01c0092225980099b8748008c01cdd500144c8cc896600266e1d2000300a375400d13232323232323232323232323298009bad301a0019bae301a00d9bae301a00c9bae301a00b9bae301a00a9bae301a0099bae301a0089bae301a0079bae301a0069bae301a0059bae301a0049bae301a0039bae301a0024888888888888966002605001d159800cc004dd71813981418141814181418129baa0209bae30273028302830283028302830253754041375c604e605060506050605060506050604a6ea808172a8cc00660026eb8c09cc0a0c0a0c0a0c0a0c0a0c0a0c0a0c0a0c0a0c094dd50104dd71813981418141814181418141814181418129baa0209bae30273028302830283028302830283028302830253754040b95528528a0468a50408d164098301a0013019001301800130170013016001301500130140013013001301200130110013010001300f001300b375400d16402460160026016601800260106ea800a2c8030600e00260066ea801e29344d95900101",
+      "hash": "3be8aed1d98cf1dee37c25ed1ecc35221069eed84a42d7ed43e442ef"
+    },
+    {
+      "title": "bond_minting_policy.bond_minting_policy.mint",
+      "redeemer": {
+        "title": "redeemer",
+        "schema": {
+          "$ref": "#/definitions/principia~1types~1BondMintingRedeemer"
+        }
+      },
+      "compiledCode": "59058b01010029800aba2aba1aab9faab9eaab9dab9a48888896600264653001300700198039804000cdc3a400130070024888966002600460106ea800e26644b30013004300a375400d1323232323232323232329800980b800cdd7180b8054dd7180b804cdd7180b8044dd7180b803cdd7180b8034dd7180b802cdd7180b8024dd7180b801a444444444b3001302100a8992cc004c060c078dd5000c4c8c8c8c8c8c8c8c8c8c8c8c8ca60026eb4c0b80066eb8c0b80366eb8c0b80326eb8c0b802e6eb8c0b802a6eb8c0b80266eb8c0b80226eb8c0b801e6eb8c0b801a6eb8c0b80166eb8c0b80126eb8c0b800e6eb8c0b8009222222222222259800981e0074566002606460706ea8092264646464646464646464646464653001375a6092003304a0019bae304900e9bae304900d9bae304900c9bae304900b9bae304900a9bad30490099bad30490089bad30490079bad30490069bae30490059bad30490049bad30490039bad304900248888888888888896600260b201d13232598009828800c56600260b06ea800a09d16416515980099b87480080062b30013058375400504e8b20b28acc004cdc3a4008003159800982c1baa002827459059456600266e1d20060018acc004c160dd5001413a2c82ca2b30013370e9004000c56600260b06ea800a09d16416516415882b105620ac415860ac6ea8004c16003a2c82b860920026090002608e002608c002608a00260880026086002608400260820026080002607e002607c002607a00260726ea80922c81ba2c81d0605c002605a00260580026056002605400260520026050002604e002604c002604a00260480026046002603e6ea80062c80e8c08002e2c80f8602e002602c002602a00260280026026002602400260220026020002601e00260166ea801a2c8048dd7180598049baa0031980091806180698069806980698069806980698069806800c8c030c034c034c034c034c034c034c03400646018601a601a601a601a601a601a0032300c300d300d300d300d300d001918061806980698069806800c8c030c034c03400646018601a0032300c300d300d300d300d300d300d300d300d001488888888cc89660033001375c602a60266ea803a6eb8c010c04cdd50074dd7180298099baa00e9bae30153016301630163013375401d375c600c60266ea803a6eb8c01cc04cdd50072444444b30015980099b8f006005899b8f0050048a50405d15980099b8f375c601c60326ea805000e266e3cdd71807980c9baa0140028a50405d14a080b9159800992cc00660026eb8c01cc050dd5000cdd71804180a1baa0019bae300930143754002b954660033001375c601660286ea80066eb8c028c050dd5000cdd71802180a1baa0015caa9429450124528202430033013375401d15980099b8f375c600a60266ea8c00cc04cdd50071bae30053013375400515980099b8f375c602a60266ea8008dd7180218099baa00e8acc004cdc39b8d375c600860266ea803920288992cc0056600260026eb4c020c050dd5001c566002b30013371290001bad3009301437540071337126eb4c024c050dd5001a4141380314a080922b30013001375a601460286ea800e2b3001337106eb4c058c05cc05cc05cc05cc05cc05cc05cc05cc05cc05cc05cc050dd50019bad30043014375400713001375a602c602e602e602e602e602e602e602e602e602e602e60286ea800e2941012452820248a50404914a080922b30013375e602c602e602e602e602e602e602e602e602e602e602e602e602e602e602e60286ea800d300103d87980008980099198008009bac30053015375401a44b30010018a4001133700900119801001180c800a02e8a50404914a08090dc42400114a0808a2941011452820228a50404514a08088c020c044dd50061bc8375c600860226ea8c004c044dd500622c8038600e00260066ea801e29344d9590011",
+      "hash": "8c92f9755f86a213820a01fe279a5ff251e0b3b566bf011de2ffab4e"
+    },
+    {
+      "title": "bond_minting_policy.bond_minting_policy.else",
+      "redeemer": {
+        "schema": {}
+      },
+      "compiledCode": "59058b01010029800aba2aba1aab9faab9eaab9dab9a48888896600264653001300700198039804000cdc3a400130070024888966002600460106ea800e26644b30013004300a375400d1323232323232323232329800980b800cdd7180b8054dd7180b804cdd7180b8044dd7180b803cdd7180b8034dd7180b802cdd7180b8024dd7180b801a444444444b3001302100a8992cc004c060c078dd5000c4c8c8c8c8c8c8c8c8c8c8c8c8ca60026eb4c0b80066eb8c0b80366eb8c0b80326eb8c0b802e6eb8c0b802a6eb8c0b80266eb8c0b80226eb8c0b801e6eb8c0b801a6eb8c0b80166eb8c0b80126eb8c0b800e6eb8c0b8009222222222222259800981e0074566002606460706ea8092264646464646464646464646464653001375a6092003304a0019bae304900e9bae304900d9bae304900c9bae304900b9bae304900a9bad30490099bad30490089bad30490079bad30490069bae30490059bad30490049bad30490039bad304900248888888888888896600260b201d13232598009828800c56600260b06ea800a09d16416515980099b87480080062b30013058375400504e8b20b28acc004cdc3a4008003159800982c1baa002827459059456600266e1d20060018acc004c160dd5001413a2c82ca2b30013370e9004000c56600260b06ea800a09d16416516415882b105620ac415860ac6ea8004c16003a2c82b860920026090002608e002608c002608a00260880026086002608400260820026080002607e002607c002607a00260726ea80922c81ba2c81d0605c002605a00260580026056002605400260520026050002604e002604c002604a00260480026046002603e6ea80062c80e8c08002e2c80f8602e002602c002602a00260280026026002602400260220026020002601e00260166ea801a2c8048dd7180598049baa0031980091806180698069806980698069806980698069806800c8c030c034c034c034c034c034c034c03400646018601a601a601a601a601a601a0032300c300d300d300d300d300d001918061806980698069806800c8c030c034c03400646018601a0032300c300d300d300d300d300d300d300d300d001488888888cc89660033001375c602a60266ea803a6eb8c010c04cdd50074dd7180298099baa00e9bae30153016301630163013375401d375c600c60266ea803a6eb8c01cc04cdd50072444444b30015980099b8f006005899b8f0050048a50405d15980099b8f375c601c60326ea805000e266e3cdd71807980c9baa0140028a50405d14a080b9159800992cc00660026eb8c01cc050dd5000cdd71804180a1baa0019bae300930143754002b954660033001375c601660286ea80066eb8c028c050dd5000cdd71802180a1baa0015caa9429450124528202430033013375401d15980099b8f375c600a60266ea8c00cc04cdd50071bae30053013375400515980099b8f375c602a60266ea8008dd7180218099baa00e8acc004cdc39b8d375c600860266ea803920288992cc0056600260026eb4c020c050dd5001c566002b30013371290001bad3009301437540071337126eb4c024c050dd5001a4141380314a080922b30013001375a601460286ea800e2b3001337106eb4c058c05cc05cc05cc05cc05cc05cc05cc05cc05cc05cc05cc050dd50019bad30043014375400713001375a602c602e602e602e602e602e602e602e602e602e602e60286ea800e2941012452820248a50404914a080922b30013375e602c602e602e602e602e602e602e602e602e602e602e602e602e602e602e60286ea800d300103d87980008980099198008009bac30053015375401a44b30010018a4001133700900119801001180c800a02e8a50404914a08090dc42400114a0808a2941011452820228a50404514a08088c020c044dd50061bc8375c600860226ea8c004c044dd500622c8038600e00260066ea801e29344d9590011",
+      "hash": "8c92f9755f86a213820a01fe279a5ff251e0b3b566bf011de2ffab4e"
+    },
+    {
+      "title": "cip8_validator.cip8_validator.spend",
+      "datum": {
+        "title": "_datum",
+        "schema": {
+          "$ref": "#/definitions/ByteArray"
+        }
+      },
+      "redeemer": {
+        "title": "redeemer",
+        "schema": {
+          "$ref": "#/definitions/cip8_validator~1Cip8Redeemer"
+        }
+      },
+      "compiledCode": "58c101010029800aba2aba1aab9faab9eaab9dab9a48888896600264653001300700198039804000cc01c0092225980099b8748008c01cdd500144c8cc896600266e1d2000300a375400d132323298009bae30100019bae30100039bae30100024889660026028009198009bae3013301430113754019375c602660226ea80326eb8c04cc050c050c044dd50062e551640483010001300f001300b375400d16402460160026016601800260106ea800a2c8030600e00260066ea801e29344d95900101",
+      "hash": "288ef4597d1614b784d7a4ffc10128b4aafb570157c2005c8ee7db9f"
+    },
+    {
+      "title": "cip8_validator.cip8_validator.else",
+      "redeemer": {
+        "schema": {}
+      },
+      "compiledCode": "58c101010029800aba2aba1aab9faab9eaab9dab9a48888896600264653001300700198039804000cc01c0092225980099b8748008c01cdd500144c8cc896600266e1d2000300a375400d132323298009bae30100019bae30100039bae30100024889660026028009198009bae3013301430113754019375c602660226ea80326eb8c04cc050c050c044dd50062e551640483010001300f001300b375400d16402460160026016601800260106ea800a2c8030600e00260066ea801e29344d95900101",
+      "hash": "288ef4597d1614b784d7a4ffc10128b4aafb570157c2005c8ee7db9f"
+    },
+    {
+      "title": "minimal_binding.minimal_binding.spend",
+      "datum": {
+        "title": "_datum",
+        "schema": {
+          "$ref": "#/definitions/ByteArray"
+        }
+      },
+      "redeemer": {
+        "title": "redeemer",
+        "schema": {
+          "$ref": "#/definitions/minimal_binding~1MinimalBindingRedeemer"
+        }
+      },
+      "compiledCode": "58d601010029800aba2aba1aab9faab9eaab9dab9a48888896600264646644b30013370e900118031baa002899914c004c02c00a60166018005375c6016003300c00148888c8cc8966002602600713298009bae30130019bae301330140019bae3013009488966002b30013370e6e3400520408acc004cdc39b8d0024820006266e212000371a00714a0809229410124660020030038012e5514a0809060260111640446eb8c040004dd7180800118080008c01cdd50011bac30090038b200a30073008001300700230070013003375400f149a26cac8009",
+      "hash": "a16d8c04eb501b275afa75c919a505a8fe94fb5dd366d020477cefd1"
+    },
+    {
+      "title": "minimal_binding.minimal_binding.else",
+      "redeemer": {
+        "schema": {}
+      },
+      "compiledCode": "58d601010029800aba2aba1aab9faab9eaab9dab9a48888896600264646644b30013370e900118031baa002899914c004c02c00a60166018005375c6016003300c00148888c8cc8966002602600713298009bae30130019bae301330140019bae3013009488966002b30013370e6e3400520408acc004cdc39b8d0024820006266e212000371a00714a0809229410124660020030038012e5514a0809060260111640446eb8c040004dd7180800118080008c01cdd50011bac30090038b200a30073008001300700230070013003375400f149a26cac8009",
+      "hash": "a16d8c04eb501b275afa75c919a505a8fe94fb5dd366d020477cefd1"
+    },
+    {
+      "title": "simple_signer_test.simple_signer_test.mint",
+      "redeemer": {
+        "title": "redeemer_public_key",
+        "schema": {
+          "$ref": "#/definitions/ByteArray"
+        }
+      },
+      "compiledCode": "58aa01010029800aba2aba1aab9faab9eaab9dab9a488888966002646464b30013370e900018029baa001899912cc004cdc39b8d0014810226466446600400400244b30010018a508acc004cdc79bae300d0010038a518998010011807000a01240306eb0c02cc030c030c030c030c030c030c030c030c024dd518058031bc80018a5040186eb8c020c018dd50009bae30080028b20083007300800130070013003375400f149a26cac80081",
+      "hash": "683d910a312a6020640bc3537586552b4b6c5958a6c0655ae93ce441"
+    },
+    {
+      "title": "simple_signer_test.simple_signer_test.else",
+      "redeemer": {
+        "schema": {}
+      },
+      "compiledCode": "58aa01010029800aba2aba1aab9faab9eaab9dab9a488888966002646464b30013370e900018029baa001899912cc004cdc39b8d0014810226466446600400400244b30010018a508acc004cdc79bae300d0010038a518998010011807000a01240306eb0c02cc030c030c030c030c030c030c030c030c024dd518058031bc80018a5040186eb8c020c018dd50009bae30080028b20083007300800130070013003375400f149a26cac80081",
+      "hash": "683d910a312a6020640bc3537586552b4b6c5958a6c0655ae93ce441"
+    },
+    {
+      "title": "veridian_verification.veridian_verification.spend",
+      "datum": {
+        "title": "_datum",
+        "schema": {
+          "$ref": "#/definitions/ByteArray"
+        }
+      },
+      "redeemer": {
+        "title": "redeemer",
+        "schema": {
+          "$ref": "#/definitions/veridian_verification~1VeridianRedeemer"
+        }
+      },
+      "compiledCode": "58d601010029800aba2aba1aab9faab9eaab9dab9a48888896600264646644b30013370e900118031baa002899914c004c02c00a60166018005375c6016003300c00148888c8cc8966002602600713298009bae30130019bae301330140019bae3013009488966002b30013370e6e3400520408acc004cdc39b8d0024820006266e212000371a00714a0809229410124660020030038012e5514a0809060260111640446eb8c040004dd7180800118080008c01cdd50011bac30090038b200a30073008001300700230070013003375400f149a26cac8009",
+      "hash": "a16d8c04eb501b275afa75c919a505a8fe94fb5dd366d020477cefd1"
+    },
+    {
+      "title": "veridian_verification.veridian_verification.else",
+      "redeemer": {
+        "schema": {}
+      },
+      "compiledCode": "58d601010029800aba2aba1aab9faab9eaab9dab9a48888896600264646644b30013370e900118031baa002899914c004c02c00a60166018005375c6016003300c00148888c8cc8966002602600713298009bae30130019bae301330140019bae3013009488966002b30013370e6e3400520408acc004cdc39b8d0024820006266e212000371a00714a0809229410124660020030038012e5514a0809060260111640446eb8c040004dd7180800118080008c01cdd50011bac30090038b200a30073008001300700230070013003375400f149a26cac8009",
+      "hash": "a16d8c04eb501b275afa75c919a505a8fe94fb5dd366d020477cefd1"
+    }
+  ],
+  "definitions": {
+    "ByteArray": {
+      "dataType": "bytes"
+    },
+    "Int": {
+      "dataType": "integer"
+    },
+    "cip8_validator/Cip8Redeemer": {
+      "title": "Cip8Redeemer",
+      "anyOf": [
+        {
+          "title": "Cip8Redeemer",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "message",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "public_key",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "signature",
+              "$ref": "#/definitions/ByteArray"
+            }
+          ]
+        }
+      ]
+    },
+    "minimal_binding/MinimalBindingRedeemer": {
+      "title": "MinimalBindingRedeemer",
+      "dataType": "list",
+      "items": [
+        {
+          "$ref": "#/definitions/ByteArray"
+        },
+        {
+          "$ref": "#/definitions/ByteArray"
+        },
+        {
+          "$ref": "#/definitions/ByteArray"
+        }
+      ]
+    },
+    "principia/types/BindingRedeemer": {
+      "title": "BindingRedeemer",
+      "description": "Complete binding redeemer structure with dual signature verification\n Updated to follow CIP-8 pattern: separate sig_structure from cardano_signature",
+      "anyOf": [
+        {
+          "title": "BindingRedeemer",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "binding_said",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "issuer_aid",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "holder_aid",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "cardano_address",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "cardano_public_key",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "sig_structure",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "cardano_signature",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "canonical_message",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "veridian_signature",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "holder_public_key",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "keri_version",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "binding_type",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "created_at",
+              "$ref": "#/definitions/principia~1types~1POSIXTime"
+            }
+          ]
+        }
+      ]
+    },
+    "principia/types/BondDatum": {
+      "title": "BondDatum",
+      "description": "Bond Datum with vLEI Entity Attribution\n Standard bond datum with embedded vLEI entity information for compliance",
+      "anyOf": [
+        {
+          "title": "BondDatum",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "issuer_lei",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "issuer_entity_name",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "issuer_entity_aid",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "vlei_credential_said",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "bond_id",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "total_face_value",
+              "$ref": "#/definitions/Int"
+            },
+            {
+              "title": "coupon_rate_bps",
+              "$ref": "#/definitions/Int"
+            },
+            {
+              "title": "payment_interval_ms",
+              "$ref": "#/definitions/Int"
+            },
+            {
+              "title": "maturity_timestamp",
+              "$ref": "#/definitions/principia~1types~1POSIXTime"
+            },
+            {
+              "title": "currency",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "denomination",
+              "$ref": "#/definitions/Int"
+            },
+            {
+              "title": "issue_timestamp",
+              "$ref": "#/definitions/principia~1types~1POSIXTime"
+            },
+            {
+              "title": "last_coupon_payment_timestamp",
+              "$ref": "#/definitions/principia~1types~1POSIXTime"
+            },
+            {
+              "title": "funds_raised",
+              "$ref": "#/definitions/Int"
+            },
+            {
+              "title": "status",
+              "$ref": "#/definitions/principia~1types~1BondStatus"
+            }
+          ]
+        }
+      ]
+    },
+    "principia/types/BondMintingRedeemer": {
+      "title": "BondMintingRedeemer",
+      "description": "Bond Minting Redeemer with 3-Credential Chain Verification\n Contains simplified vLEI credential chain + wallet binding proof\n Implements Verifiable Smart Contracts: only authorized identity can mint",
+      "anyOf": [
+        {
+          "title": "BondMintingRedeemer",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "qvi_lei",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "le_lei",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "role_lei",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "qvi_credential_said",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "le_credential_said",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "role_credential_said",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "le_qvi_edge",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "role_le_edge",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "binding_proof",
+              "$ref": "#/definitions/principia~1types~1BindingRedeemer"
+            },
+            {
+              "title": "bond_datum",
+              "$ref": "#/definitions/principia~1types~1BondDatum"
+            }
+          ]
+        }
+      ]
+    },
+    "principia/types/BondStatus": {
+      "title": "BondStatus",
+      "description": "Bond Status (simplified from existing)",
+      "anyOf": [
+        {
+          "title": "Funding",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": []
+        },
+        {
+          "title": "Active",
+          "dataType": "constructor",
+          "index": 1,
+          "fields": []
+        },
+        {
+          "title": "Matured",
+          "dataType": "constructor",
+          "index": 2,
+          "fields": []
+        },
+        {
+          "title": "Defaulted",
+          "dataType": "constructor",
+          "index": 3,
+          "fields": []
+        },
+        {
+          "title": "Redeemed",
+          "dataType": "constructor",
+          "index": 4,
+          "fields": []
+        }
+      ]
+    },
+    "principia/types/POSIXTime": {
+      "title": "POSIXTime",
+      "dataType": "integer"
+    },
+    "veridian_verification/VeridianRedeemer": {
+      "title": "VeridianRedeemer",
+      "dataType": "list",
+      "items": [
+        {
+          "$ref": "#/definitions/ByteArray"
+        },
+        {
+          "$ref": "#/definitions/ByteArray"
+        },
+        {
+          "$ref": "#/definitions/ByteArray"
+        }
+      ]
+    }
+  }
+}
